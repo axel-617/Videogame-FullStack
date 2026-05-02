@@ -188,6 +188,91 @@ app.delete('/developers/:id', async (req, res) => {
   }
 });
 
+// ==============CRUD de videogames=================
+// GET
+// Listar todos los videojuegos
+app.get('/videogames', async (req, res) => {
+    try {
+        const videogames = await db('videogames').select('*');
+        res.json(videogames);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Buscar un videojuego por ID
+app.get('/videogames/:id', async (req, res) => {
+  try {
+    const videogame = await db('videogames').where({ id: req.params.id }).first();
+
+    if (!videogame) {
+      return res.status(404).json({ error: 'Videojuego no encontrado' });
+    }
+
+    res.json(videogame);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// POST
+// Crear un nuevo videojuego
+app.post('/videogames', async (req, res) => {
+  try {
+    const { title, price, image, category_id, developer_id } = req.body;
+
+    if (!title || price === undefined || !category_id || !developer_id) {
+      return res.status(400).json({ error: 'title, price, category_id y developer_id son campos obligatorios' });
+    }
+
+    const [id] = await db('videogames').insert({ title, price, image, category_id, developer_id });
+
+    res.status(201).json({ id, title, price, image, category_id, developer_id });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// PUT
+// Actualizar/modificar un videojuego existente
+app.put('/videogames/:id', async (req, res) => {
+  try {
+    const { title, price, image, category_id, developer_id } = req.body;
+
+    if (!title || price === undefined || !category_id || !developer_id) {
+      return res.status(400).json({ error: 'title, price, category_id y developer_id son campos obligatorios' });
+    }
+
+    const updatedRows = await db('videogames').where({ id: req.params.id }).update({ title, price, image, category_id, developer_id });
+
+    if (updatedRows === 0) {
+      return res.status(404).json({ error: 'Videojuego no encontrado' });
+    }
+
+    const updatedVideogame = await db('videogames').where({ id: req.params.id }).first();
+
+    res.json(updatedVideogame);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// DELETE
+// Eliminar un videojuego por ID
+app.delete('/videogames/:id', async (req, res) => {
+  try {
+    const deletedRows = await db('videogames').where({ id: req.params.id }).del();
+
+    if (deletedRows === 0) {
+      return res.status(404).json({ error: 'Videojuego no encontrado' });
+    }
+
+    res.json({ message: 'Videojuego eliminado correctamente' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Puerto de escucha del servidor
 app.listen(port, () => {
     console.log(`Iniciando el backend en el puerto ${port}`);
