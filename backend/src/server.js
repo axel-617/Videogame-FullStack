@@ -103,6 +103,91 @@ app.delete('/categories/:id', async (req, res) => {
   }
 });
 
+// ==============CRUD de developers=================
+// GET
+// Listar todas las desarrolladoras
+app.get('/developers', async (req, res) => {
+    try {
+        const developers = await db('developers').select('*');
+        res.json(developers);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Buscar una desarrolladora por ID
+app.get('/developers/:id', async (req, res) => {
+  try {
+    const developer = await db('developers').where({ id: req.params.id }).first();
+
+    if (!developer) {
+      return res.status(404).json({ error: 'Desarrolladora no encontrada' });
+    }
+
+    res.json(developer);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// POST
+// Crear una nueva desarrolladora
+app.post('/developers', async (req, res) => {
+  try {
+    const { name, country } = req.body;
+
+    if (!name || !country) {
+      return res.status(400).json({ error: 'Name y country son campos obligatorios' });
+    }
+
+    const [id] = await db('developers').insert({ name, country });
+
+    res.status(201).json({ id, name, country });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// PUT
+// Actualizar/modificar una desarrolladora existente
+app.put('/developers/:id', async (req, res) => {
+  try {
+    const { name, country } = req.body;
+
+    if (!name || !country) {
+      return res.status(400).json({ error: 'Name y country son campos obligatorios' });
+    }
+
+    const updatedRows = await db('developers').where({ id: req.params.id }).update({ name, country });
+
+    if (updatedRows === 0) {
+      return res.status(404).json({ error: 'Desarrolladora no encontrada' });
+    }
+
+    const updatedDeveloper = await db('developers').where({ id: req.params.id }).first();
+
+    res.json(updatedDeveloper);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// DELETE
+// Eliminar una desarrolladora por ID
+app.delete('/developers/:id', async (req, res) => {
+  try {
+    const deletedRows = await db('developers').where({ id: req.params.id }).del();
+
+    if (deletedRows === 0) {
+      return res.status(404).json({ error: 'Desarrolladora no encontrada' });
+    }
+
+    res.json({ message: 'Desarrolladora eliminada correctamente' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Puerto de escucha del servidor
 app.listen(port, () => {
     console.log(`Iniciando el backend en el puerto ${port}`);
