@@ -7,9 +7,33 @@
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <h1>Catálogo de videojuegos</h1>
-  <p>Frontend en preparación.</p>
+  <header class="main-header">
+    <h1 class="title">Videojuegos</h1>
+    <nav class="header-actions">
+      <a href="#" class="btn btn-solid">Videojuegos</a>
+      <a href="#" class="btn btn-outline">Categorías</a>
+      <a href="#" class="btn btn-outline">Desarrolladoras</a>
+    </nav>
+  </header>
 
+  <main class="main-content">
+    <section class="filters">
+      <input type="text" id="search" placeholder="Buscar...">
+      <select id="filter">
+        <option value="">Filtrar...</option>
+      </select>
+    </section>
+
+    <section class="container" id="items"></section>
+
+    <div id="pagination">
+      <button id="prev-btn" class="btn btn-solid">← Prev</button>
+      <div class="page-info">
+        <p>Página <span id="current-page">1</span> / <span id="total-pages">1</span></p>
+      </div>
+      <button id="next-btn" class="btn btn-solid">Next →</button>
+    </div>
+  </main>
   <script type="module" src="./app.js"></script>
 </body>
 </html>
