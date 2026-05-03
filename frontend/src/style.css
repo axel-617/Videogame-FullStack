@@ -32,6 +32,13 @@ a {
   gap: 12px;
 }
 
+/* Por defecto, todos los enlaces tienen estilo de "outline" */
+.header-actions a {
+  background: transparent;
+  color: #4ea6ff;
+  border-color: #4ea6ff;
+}
+
 .main-content {
   max-width: 1300px;
   margin: 0 auto;
@@ -76,6 +83,35 @@ a {
   box-shadow: 0 0 12px rgba(78, 166, 255, 0.35);
 }
 
+
+.form-row {
+  display: flex;
+  gap: 14px; 
+  width: 100%;
+}
+
+.form-row select {
+  flex: 1;
+  margin-bottom: 14px; 
+}
+
+.selection{
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border: 1px solid #2c466d;
+  border-radius: 12px;
+  background: #101a2c;
+  color: #eaf2ff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.selection:hover {
+  border-color: #4ea6ff;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -98,7 +134,7 @@ a {
 
 .card img {
   width: 100%;
-  height: 220px;
+  aspect-ratio: 2 / 2.5;
   object-fit: cover;
   display: block;
 }

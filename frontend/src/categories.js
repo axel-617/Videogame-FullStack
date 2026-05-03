@@ -8,22 +8,34 @@ let categoriesEventsInitialized = false;
 // Función para activar la vista de categorías (se llama desde app.js)
 export function activateCategoriesView() {
   const title = document.querySelector(".title");
-  const searchInput = document.getElementById("search");
+  const filtersSection = document.querySelector(".filters");
+  const itemsContainer = document.getElementById("items");
   const pagination = document.getElementById("pagination");
+
   const addCategoryBtn = document.getElementById("add-category-btn");
   const addDeveloperBtn = document.getElementById("add-developer-btn");
-  const formSection = document.getElementById("category-form-section");
-  const filterSelect = document.getElementById("filter");
+  const addVideogameBtn = document.getElementById("add-videogame-btn");
+
+  const categoryFormSection = document.getElementById("category-form-section");
+  const videogameFormSection = document.getElementById("videogame-form-section");
+  const developerFormSection = document.getElementById("developer-form-section");
   const loginSection = document.getElementById("login-section");
 
   title.textContent = "Categorías";
-  searchInput.classList.add("hidden");
-  filterSelect.classList.add("hidden");
-  pagination.classList.remove("hidden");
+
+  filtersSection.classList.add("hidden");
+
   addCategoryBtn.classList.remove("hidden");
   addDeveloperBtn.classList.add("hidden");
-  formSection.classList.add("hidden");
+  addVideogameBtn.classList.add("hidden");
+
+  categoryFormSection.classList.add("hidden");
+  videogameFormSection.classList.add("hidden");
+  developerFormSection.classList.add("hidden");
   loginSection.classList.add("hidden");
+
+  itemsContainer.classList.remove("hidden");
+  pagination.classList.remove("hidden");
 
   initializeCategoriesEvents();
   loadCategories();
