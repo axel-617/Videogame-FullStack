@@ -11,15 +11,19 @@ export function activateCategoriesView() {
   const searchInput = document.getElementById("search");
   const pagination = document.getElementById("pagination");
   const addCategoryBtn = document.getElementById("add-category-btn");
+  const addDeveloperBtn = document.getElementById("add-developer-btn");
   const formSection = document.getElementById("category-form-section");
   const filterSelect = document.getElementById("filter");
+  const loginSection = document.getElementById("login-section");
 
   title.textContent = "Categorías";
   searchInput.classList.add("hidden");
   filterSelect.classList.add("hidden");
   pagination.classList.remove("hidden");
   addCategoryBtn.classList.remove("hidden");
+  addDeveloperBtn.classList.add("hidden");
   formSection.classList.add("hidden");
+  loginSection.classList.add("hidden");
 
   initializeCategoriesEvents();
   loadCategories();
@@ -45,8 +49,7 @@ function initializeCategoriesEvents() {
 // Función para cargar las categorías desde el backend utilizando axios y la variable API_URL declarada al inicio 
 async function loadCategories() {
   const itemsContainer = document.getElementById("items");
-  itemsContainer.innerHTML = "<p>Cargando categorías...</p>";
-
+  
   try {
     const response = await axios.get(API_URL);
     const categories = response.data;
