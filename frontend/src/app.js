@@ -1,11 +1,10 @@
-import axios from 'axios';
+import { activateCategoriesView } from './categories.js';
 
-console.log('Iniciando el frontend...');
+document.addEventListener('DOMContentLoaded', function () {
+  const categoriesBtn = document.getElementById('categories');
 
-axios.get('http://localhost:8081/videogames/')
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
+  categoriesBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+    activateCategoriesView();
   });
+});
