@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Videogames App</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
   <header class="main-header">
     <h1 class="title">Videojuegos</h1>
     <nav class="header-actions">
-      <a href="#" class="btn btn-solid">Videojuegos</a>
-      <a href="#" class="btn btn-outline">Categorías</a>
-      <a href="#" class="btn btn-outline">Desarrolladoras</a>
+      <a href="#" class="btn btn-solid" id="videogames">Videojuegos</a>
+      <a href="#" class="btn btn-outline" id="categories">Categorías</a>
+      <a href="#" class="btn btn-outline" id="developers">Desarrolladoras</a>
     </nav>
   </header>
 
@@ -22,6 +24,23 @@
       <select id="filter">
         <option value="">Filtrar...</option>
       </select>
+    </section>
+
+    <section class="add-btn" id="add-btn">
+      <button id="add-category-btn" class="btn btn-solid hidden">Añadir categoría</button>
+    </section>
+
+    <section id="category-form-section" class="form-section hidden">
+      <h2 id="form-title">Nueva categoría</h2>
+
+      <form id="category-form">
+        <input type="text" id="category-name" placeholder="Nombre de la categoría" />
+        <textarea id="category-description" placeholder="Descripción"></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-solid">Guardar</button>
+          <button type="button" id="cancel-form" class="btn btn-outline">Cancelar</button>
+        </div>
+      </form>
     </section>
 
     <section class="container" id="items"></section>
@@ -36,4 +55,5 @@
   </main>
   <script type="module" src="./app.js"></script>
 </body>
+
 </html>

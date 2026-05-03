@@ -164,9 +164,62 @@ a {
   margin-top: 32px;
 }
 
+#pagination.hidden {
+  display: none;
+}
+
 .page-info {
   padding: 12px 20px;
   background: #16233a;
   border: 1px solid #243b5e;
   border-radius: 10px;
+}
+
+/* Botón para añadir */
+.add-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+/* Formulario para añadir  */
+.form-section {
+  background: #16233a;
+  border: 1px solid #243b5e;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.form-section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.form-section input,
+.form-section textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border: 1px solid #2c466d;
+  border-radius: 12px;
+  background: #101a2c;
+  color: #eaf2ff;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-section textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.hidden {
+  display: none;
 }
