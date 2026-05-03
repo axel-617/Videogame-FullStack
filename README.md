@@ -86,4 +86,7 @@ En la carpeta `/backend/docs` encontrarás un fichero `Videogames-API.json` que 
 
 ## Autor
 
-Alejandro Reoyo 
+- Alejandro Reoyo Giménez
+- Actividad de Aprendizaje 2ª Evaluación
+- Curso 2025-2026
+- Entornos de Desarrollo
