@@ -26,13 +26,14 @@
       </select>
     </section>
 
-    <section class="add-btn" id="add-btn">
+    <section class="add-btn">
       <button id="add-category-btn" class="btn btn-solid hidden">Añadir categoría</button>
+      <button id="add-developer-btn" class="btn btn-solid hidden">Añadir desarrolladora</button>
     </section>
 
+    <!-- Formulario para añadir/editar categorías -->
     <section id="category-form-section" class="form-section hidden">
       <h2 id="form-title">Nueva categoría</h2>
-
       <form id="category-form">
         <input type="text" id="category-name" placeholder="Nombre de la categoría" />
         <textarea id="category-description" placeholder="Descripción"></textarea>
@@ -43,7 +44,32 @@
       </form>
     </section>
 
+    <!-- Formulario para añadir/editar desarrolladoras -->
+    <section id="developer-form-section" class="form-section hidden">
+      <h2 id="developer-form-title">Nueva desarrolladora</h2>
+      <form id="developer-form">
+        <input type="text" id="developer-name" placeholder="Nombre de la desarrolladora" />
+        <textarea id="developer-country" placeholder="País"></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-solid">Guardar</button>
+          <button type="button" id="cancel-developer-form" class="btn btn-outline">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
     <section class="container" id="items"></section>
+
+    <section id="login-section" class="form-section hidden">
+      <h2>Login requerido</h2>
+      <form id="login-form">
+        <input type="text" id="login-username" placeholder="Usuario" />
+        <input type="password" id="login-password" placeholder="Contraseña" />
+        <div class="form-actions">
+          <button type="submit" class="btn btn-solid">Entrar</button>
+          <button type="button" id="cancel-login" class="btn btn-outline">Cancelar</button>
+        </div>
+      </form>
+    </section>
 
     <div id="pagination">
       <button id="prev-btn" class="btn btn-solid">← Prev</button>
