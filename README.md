@@ -17,8 +17,10 @@ La aplicación permitirá gestionar información relacionada con videojuegos sig
 - Node.js
 - Express
 - SQLite
+- Knex
 - CORS
 - Nodemon
+- Express-validator
 
 ### Frontend
 - HTML
@@ -37,6 +39,13 @@ La base de datos está organizada en las siguientes entidades:
 
 La entidad `videogames` se relaciona con `categories` y `developers` mediante claves foráneas.
 
+## Requisitos previos
+
+Antes de ejecutar el proyecto, es necesario tener instalados:
+
+- Node.js
+- npm
+
 ## Puesta en marcha
 
 ### 1. Clonar el repositorio
@@ -45,7 +54,7 @@ La entidad `videogames` se relaciona con `categories` y `developers` mediante cl
 git clone https://github.com/axel-617/Videogame-FullStack.git
 ```
 
-### 2. Instalar y ejecutar el backend
+### 2. Inicializar el backend
 
 ```bash
 cd backend
@@ -59,9 +68,9 @@ El backend se iniciará en:
 http://localhost:8081
 ```
 
-### 3. Instalar y ejecutar el frontend
+### 3. Inicializar el frontend
 
-Abrir una segunda terminal con split terminal y ejecutar:
+Abre una segunda terminal y ejecuta:
 
 ```bash
 cd frontend
@@ -71,9 +80,9 @@ npm start
 
 El frontend se ejecutará mediante Parcel en un entorno de desarrollo local.
 
-## Estado actual
+## Documentación de la API
 
-Proyecto está en fase inicial de desarrollo. Actualmente se ha preparado la estructura base del proyecto, la configuración inicial del backend y del frontend, y el modelo de datos en SQLite.
+En la carpeta `/backend/docs` encontrarás un fichero `Videogames-API.json` que contiene la colección de todas las peticiones de ejemplo para probar la API. Puede importarse en **Hoppscotch** o en **Postman**.
 
 ## Autor
 
