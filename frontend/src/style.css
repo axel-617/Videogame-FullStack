@@ -1,6 +1,261 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 2rem;
-  background-color: #f5f5f5;
-  color: #222;
+  margin: 0;
+  font-family: sans-serif;
+  background: linear-gradient(180deg, #0b1220, #101a2c);
+  color: #eaf2ff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  background: #101a2c;
+  border-bottom: 1px solid #1f3252;
+}
+
+.title {
+  font-family: "Orbitron";
+  margin: 0;
+  font-size: 40px;
+  color: #4ea6ff;
+  text-shadow: 0 0 10px rgba(78, 166, 255, 0.35);
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Por defecto, todos los enlaces tienen estilo de "outline" */
+.header-actions a {
+  background: transparent;
+  color: #4ea6ff;
+  border-color: #4ea6ff;
+}
+
+.main-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 32px 40px;
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.filters input,
+.filters select {
+  height: 58px;
+  padding: 0 18px;
+  border: 1px solid #2c466d;
+  border-radius: 12px;
+  background: #16233a;
+  color: #eaf2ff;
+  font-size: 1rem;
+  transition: 0.2s ease;
+}
+
+.filters input {
+  flex: 1;
+  min-width: 420px;
+}
+
+.filters select {
+  min-width: 280px;
+}
+
+.filters input::placeholder {
+  color: #9bb1d8;
+}
+
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: #4ea6ff;
+  box-shadow: 0 0 12px rgba(78, 166, 255, 0.35);
+}
+
+
+.form-row {
+  display: flex;
+  gap: 14px; 
+  width: 100%;
+}
+
+.form-row select {
+  flex: 1;
+  margin-bottom: 14px; 
+}
+
+.selection{
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border: 1px solid #2c466d;
+  border-radius: 12px;
+  background: #101a2c;
+  color: #eaf2ff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.selection:hover {
+  border-color: #4ea6ff;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #16233a;
+  border: 1px solid #243b5e;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px rgba(78, 166, 255, 0.18);
+  border-color: #4ea6ff;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 2 / 2.5;
+  object-fit: cover;
+  display: block;
+}
+
+.content {
+  padding: 18px;
+}
+
+.content h2 {
+  margin: 0 0 12px;
+  color: #ffffff;
+}
+
+.content p {
+  margin: 8px 0;
+  color: #bfe7ff;
+}
+
+.content span {
+  color: #4ea6ff;
+  font-weight: bold;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-solid {
+  background: #005cff;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 92, 255, 0.25);
+}
+
+.btn-solid:hover {
+  background: #1f73ff;
+  box-shadow: 0 0 18px rgba(0, 92, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #4ea6ff;
+  border-color: #4ea6ff;
+}
+
+.btn-outline:hover {
+  background: rgba(78, 166, 255, 0.08);
+  box-shadow: 0 0 14px rgba(78, 166, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+#pagination.hidden {
+  display: none;
+}
+
+.page-info {
+  padding: 12px 20px;
+  background: #16233a;
+  border: 1px solid #243b5e;
+  border-radius: 10px;
+}
+
+/* Botón para añadir */
+.add-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+/* Formulario para añadir  */
+.form-section {
+  background: #16233a;
+  border: 1px solid #243b5e;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.form-section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.form-section input,
+.form-section textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border: 1px solid #2c466d;
+  border-radius: 12px;
+  background: #101a2c;
+  color: #eaf2ff;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-section textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,15 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Videogames App</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
-<body>
-  <h1>Catálogo de videojuegos</h1>
-  <p>Frontend en preparación.</p>
 
+<body>
+  <header class="main-header">
+    <h1 class="title">Videojuegos</h1>
+    <nav class="header-actions">
+      <a href="#videogames" class="btn btn-outline" id="videogames">Videojuegos</a>
+      <a href="#categories" class="btn btn-outline" id="categories">Categorías</a>
+      <a href="#developers" class="btn btn-outline" id="developers">Desarrolladoras</a>
+    </nav>
+  </header>
+
+  <!-- Filtros para videojuegos -->
+  <main class="main-content">
+    <section class="filters">
+      <input type="text" id="search" placeholder="Buscar videojuego...">
+
+      <select id="category-filter">
+        <option value="">Filtrar por categoría</option>
+      </select>
+
+      <select id="developer-filter">
+        <option value="">Filtrar por desarrolladora</option>
+      </select>
+    </section>
+
+    <!-- Botones para añadir nuevos elementos -->
+    <section class="add-btn">
+      <button id="add-videogame-btn" class="btn btn-solid hidden">Añadir videojuego</button>
+      <button id="add-category-btn" class="btn btn-solid hidden">Añadir categoría</button>
+      <button id="add-developer-btn" class="btn btn-solid hidden">Añadir desarrolladora</button>
+    </section>
+
+    <!-- Formulario para añadir/editar videojuegos -->
+    <section id="videogame-form-section" class="form-section hidden">
+      <h2 id="videogame-form-title">Nuevo videojuego</h2>
+      <form id="videogame-form">
+        <input type="text" id="videogame-title" placeholder="Título del videojuego" />
+        <input type="number" id="videogame-price" placeholder="Precio" step="0.01" />
+        <input type="text" id="videogame-image" placeholder="URL de la imagen" />
+
+        <div class="form-row">
+        <select id="videogame-category" class="selection">
+          <option value="">Selecciona una categoría</option>
+        </select>
+
+        <select id="videogame-developer" class="selection">
+          <option value="">Selecciona una desarrolladora</option>
+        </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-solid">Guardar</button>
+          <button type="button" id="cancel-videogame-form" class="btn btn-outline">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Formulario para añadir/editar categorías -->
+    <section id="category-form-section" class="form-section hidden">
+      <h2 id="form-title">Nueva categoría</h2>
+      <form id="category-form">
+        <input type="text" id="category-name" placeholder="Nombre de la categoría" />
+        <textarea id="category-description" placeholder="Descripción"></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-solid">Guardar</button>
+          <button type="button" id="cancel-form" class="btn btn-outline">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Formulario para añadir/editar desarrolladoras -->
+    <section id="developer-form-section" class="form-section hidden">
+      <h2 id="developer-form-title">Nueva desarrolladora</h2>
+      <form id="developer-form">
+        <input type="text" id="developer-name" placeholder="Nombre de la desarrolladora" />
+        <textarea id="developer-country" placeholder="País"></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-solid">Guardar</button>
+          <button type="button" id="cancel-developer-form" class="btn btn-outline">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="container" id="items"></section>
+
+    <section id="login-section" class="form-section hidden">
+      <h2>Login requerido</h2>
+      <form id="login-form">
+        <input type="text" id="login-username" placeholder="Usuario" />
+        <input type="password" id="login-password" placeholder="Contraseña" />
+        <div class="form-actions">
+          <button type="submit" class="btn btn-solid">Entrar</button>
+          <button type="button" id="cancel-login" class="btn btn-outline">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <div id="pagination">
+      <button id="prev-btn" class="btn btn-solid">←</button>
+      <div class="page-info">
+        <p>Página <span id="current-page">1</span> / <span id="total-pages">1</span></p>
+      </div>
+      <button id="next-btn" class="btn btn-solid">→</button>
+    </div>
+  </main>
   <script type="module" src="./app.js"></script>
 </body>
+
 </html>

@@ -1,11 +1,26 @@
-import axios from 'axios';
+import { activateCategoriesView } from "./categories.js";
+import { activateDevelopersView } from "./developers.js";
+import { activateVideogamesView } from "./videogames.js";
 
-console.log('Iniciando el frontend...');
+document.addEventListener("DOMContentLoaded", function () {
+  const videogamesBtn = document.getElementById("videogames");
+  const categoriesBtn = document.getElementById("categories");
+  const developersBtn = document.getElementById("developers");
 
-axios.get('http://localhost:8081/videogames/')
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
+  activateVideogamesView();
+
+  videogamesBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    activateVideogamesView();
   });
+
+  categoriesBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    activateCategoriesView();
+  });
+
+  developersBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    activateDevelopersView();
+  });
+});
