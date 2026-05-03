@@ -12,23 +12,56 @@
   <header class="main-header">
     <h1 class="title">Videojuegos</h1>
     <nav class="header-actions">
-      <a href="#" class="btn btn-solid" id="videogames">Videojuegos</a>
-      <a href="#" class="btn btn-outline" id="categories">Categorías</a>
-      <a href="#" class="btn btn-outline" id="developers">Desarrolladoras</a>
+      <a href="#videogames" class="btn btn-outline" id="videogames">Videojuegos</a>
+      <a href="#categories" class="btn btn-outline" id="categories">Categorías</a>
+      <a href="#developers" class="btn btn-outline" id="developers">Desarrolladoras</a>
     </nav>
   </header>
 
+  <!-- Filtros para videojuegos -->
   <main class="main-content">
     <section class="filters">
-      <input type="text" id="search" placeholder="Buscar...">
-      <select id="filter">
-        <option value="">Filtrar...</option>
+      <input type="text" id="search" placeholder="Buscar videojuego...">
+
+      <select id="category-filter">
+        <option value="">Filtrar por categoría</option>
+      </select>
+
+      <select id="developer-filter">
+        <option value="">Filtrar por desarrolladora</option>
       </select>
     </section>
 
+    <!-- Botones para añadir nuevos elementos -->
     <section class="add-btn">
+      <button id="add-videogame-btn" class="btn btn-solid hidden">Añadir videojuego</button>
       <button id="add-category-btn" class="btn btn-solid hidden">Añadir categoría</button>
       <button id="add-developer-btn" class="btn btn-solid hidden">Añadir desarrolladora</button>
+    </section>
+
+    <!-- Formulario para añadir/editar videojuegos -->
+    <section id="videogame-form-section" class="form-section hidden">
+      <h2 id="videogame-form-title">Nuevo videojuego</h2>
+      <form id="videogame-form">
+        <input type="text" id="videogame-title" placeholder="Título del videojuego" />
+        <input type="number" id="videogame-price" placeholder="Precio" step="0.01" />
+        <input type="text" id="videogame-image" placeholder="URL de la imagen" />
+
+        <div class="form-row">
+        <select id="videogame-category" class="selection">
+          <option value="">Selecciona una categoría</option>
+        </select>
+
+        <select id="videogame-developer" class="selection">
+          <option value="">Selecciona una desarrolladora</option>
+        </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-solid">Guardar</button>
+          <button type="button" id="cancel-videogame-form" class="btn btn-outline">Cancelar</button>
+        </div>
+      </form>
     </section>
 
     <!-- Formulario para añadir/editar categorías -->
@@ -72,11 +105,11 @@
     </section>
 
     <div id="pagination">
-      <button id="prev-btn" class="btn btn-solid">← Prev</button>
+      <button id="prev-btn" class="btn btn-solid">←</button>
       <div class="page-info">
         <p>Página <span id="current-page">1</span> / <span id="total-pages">1</span></p>
       </div>
-      <button id="next-btn" class="btn btn-solid">Next →</button>
+      <button id="next-btn" class="btn btn-solid">→</button>
     </div>
   </main>
   <script type="module" src="./app.js"></script>

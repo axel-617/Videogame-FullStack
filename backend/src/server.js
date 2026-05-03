@@ -200,6 +200,32 @@ app.get('/videogames', async (req, res) => {
     }
 });
 
+// Buscar videojuegos por nombre y filtrarlos por categoría o desarrolladora
+app.get('/videogames/filter', async (req, res) => {
+  try {
+    const { title, category_id, developer_id } = req.query;
+
+    let query = db('videogames');
+
+    if (title) {
+      query = query.where('title', 'like', `%${title}%`);
+    }
+
+    if (category_id) {
+      query = query.where('category_id', category_id);
+    }
+
+    if (developer_id) {
+      query = query.where('developer_id', developer_id);
+    }
+
+    const videogames = await query.select('*');
+    res.json(videogames);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Buscar un videojuego por ID
 app.get('/videogames/:id', async (req, res) => {
   try {

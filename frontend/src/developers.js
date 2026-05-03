@@ -10,26 +10,32 @@ let pendingAction = null;
 // Función para activar la vista de desarrolladoras (se llama desde app.js)
 export function activateDevelopersView() {
   const title = document.querySelector(".title");
+  const filtersSection = document.querySelector(".filters");
   const itemsContainer = document.getElementById("items");
-  const addDeveloperBtn = document.getElementById("add-developer-btn");
-  const addCategoryBtn = document.getElementById("add-category-btn");
-  const developerFormSection = document.getElementById("developer-form-section");
-  const categoryFormSection = document.getElementById("category-form-section");
-  const loginSection = document.getElementById("login-section");
-  const searchInput = document.getElementById("search");
-  const filterSelect = document.getElementById("filter");
   const pagination = document.getElementById("pagination");
 
+  const addDeveloperBtn = document.getElementById("add-developer-btn");
+  const addCategoryBtn = document.getElementById("add-category-btn");
+  const addVideogameBtn = document.getElementById("add-videogame-btn");
+
+  const developerFormSection = document.getElementById("developer-form-section");
+  const categoryFormSection = document.getElementById("category-form-section");
+  const videogameFormSection = document.getElementById("videogame-form-section");
+  const loginSection = document.getElementById("login-section");
+
   title.textContent = "Desarrolladoras";
+
+  filtersSection.classList.add("hidden");
+
   addDeveloperBtn.classList.remove("hidden");
   addCategoryBtn.classList.add("hidden");
+  addVideogameBtn.classList.add("hidden");
 
   developerFormSection.classList.add("hidden");
   categoryFormSection.classList.add("hidden");
+  videogameFormSection.classList.add("hidden");
   loginSection.classList.add("hidden");
 
-  searchInput.classList.add("hidden");
-  filterSelect.classList.add("hidden");
   pagination.classList.remove("hidden");
   itemsContainer.classList.remove("hidden");
 
